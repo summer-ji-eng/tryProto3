@@ -1,0 +1,114 @@
+{
+  "nested": {
+    "TestMessage": {
+      "fields": {
+        "content": {
+          "type": "string",
+          "id": 1
+        },
+        "ttl": {
+          "type": "google.protobuf.Duration",
+          "id": 4
+        },
+        "metadata": {
+          "type": "google.protobuf.Any",
+          "id": 3
+        }
+      }
+    },
+    "TestEnum": {
+      "values": {
+        "GLOBAL": 0,
+        "LOCAL": 1
+      }
+    },
+    "TestArray": {
+      "fields": {
+        "name": {
+          "type": "string",
+          "id": 1
+        },
+        "allowed": {
+          "rule": "repeated",
+          "type": "Allowed",
+          "id": 2
+        }
+      }
+    },
+    "Allowed": {
+      "oneofs": {
+        "_content": {
+          "oneof": [
+            "content"
+          ]
+        }
+      },
+      "fields": {
+        "content": {
+          "type": "string",
+          "id": 1,
+          "options": {
+            "proto3_optional": true
+          }
+        }
+      }
+    },
+    "IPProtocol": {
+      "values": {
+        "AH": 0,
+        "ESP": 1
+      }
+    },
+    "TestProtocol": {
+      "fields": {
+        "IPProtocol": {
+          "type": "IPProtocol",
+          "id": 1
+        }
+      }
+    },
+    "Test": {
+      "methods": {
+        "Echo": {
+          "requestType": "TestMessage",
+          "responseType": "google.protobuf.Empty"
+        }
+      }
+    },
+    "google": {
+      "nested": {
+        "protobuf": {
+          "nested": {
+            "Duration": {
+              "fields": {
+                "seconds": {
+                  "type": "int64",
+                  "id": 1
+                },
+                "nanos": {
+                  "type": "int32",
+                  "id": 2
+                }
+              }
+            },
+            "Empty": {
+              "fields": {}
+            },
+            "Any": {
+              "fields": {
+                "type_url": {
+                  "type": "string",
+                  "id": 1
+                },
+                "value": {
+                  "type": "bytes",
+                  "id": 2
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

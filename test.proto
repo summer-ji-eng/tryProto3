@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/any.proto";
+
+/**
+ * Callback as used by {@link google.cloud.secretmanager.v1.SecretManagerService#listSecrets}.
+ * @param error Error, if any
+ * @param [response] ListSecretsResponse
+ */
+message TestMessage {
+  string content = 1;
+  google.protobuf.Duration ttl = 4;
+  google.protobuf.Any metadata = 3;
+}
+
+enum TestEnum {
+  GLOBAL = 0;
+  LOCAL = 1;
+}
+
+message TestArray {
+  string name = 1;
+  repeated Allowed allowed = 2;
+}
+
+message Allowed {
+  optional string content = 1;
+}
+
+enum IPProtocol {
+  AH = 0;
+  ESP = 1;
+}
+
+message TestProtocol {
+  IPProtocol I_p_protocol = 1;
+}
+
+service Test {
+  rpc Echo(TestMessage) returns (google.protobuf.Empty) {
+  }
+}

@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message Metadata {
+  // Clients should wait at least this long between retrying the same request.
+  string content = 1;
+}
